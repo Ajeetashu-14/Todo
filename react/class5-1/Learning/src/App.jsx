@@ -14,23 +14,34 @@ function App() {
     completed: true
   }]);
 
+  function addTodo(){
+    setTodos([...todos,{
+      title: "new title",
+      description: "some description of new todo"
+    }])
+  }
+
   return (
+
     <div>
-        {JSON.stringify(todos)}
+        {/* <Todo title={todos[0].title} description={todos[0].description}></Todo>
+        <Todo title={todos[1].title} description={todos[1].description}></Todo> */}
+
+        <button onClick={addTodo}>Add a todo</button>
+
+        {todos.map(function(todo){
+          return <Todo title={todo.title} description={todo.description}></Todo>
+        })}
+
     </div>
   )
 }
 
-//component
-function CustomButton(props){
-
-  function onClickHandler(){
-    props.setCount(props.count+1);
-  }
-
-  return <button onClick={onClickHandler}>
-    Counter {props.count}
-  </button>
+function Todo(props){
+  return <div>
+    <h2>{props.title}</h2>
+    <h2>{props.description}</h2>
+  </div>
 }
 
 export default App

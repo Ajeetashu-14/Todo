@@ -4,17 +4,11 @@ import {useState} from "react"
 
 function App() {
 
-  const [todos,setTodos] = useState([{
-    title: "Do excercise",
-    description: "Go to gym from 4-5",
-    completed: true
-  },{
-    title: "Learn react",
-    description: "from 9-12",
-    completed: true
-  }]);
+  const [todos,setTodos] = useState([]);
+  console.log("inside APP")
 
   function addTodo(){
+    console.log("inside addTodo function")
     setTodos([...todos,{
       title: "new title",
       description: "some description of new todo"
@@ -24,8 +18,6 @@ function App() {
   return (
 
     <div>
-        {/* <Todo title={todos[0].title} description={todos[0].description}></Todo>
-        <Todo title={todos[1].title} description={todos[1].description}></Todo> */}
 
         <button onClick={addTodo}>Add a todo</button>
 
@@ -37,7 +29,8 @@ function App() {
   )
 }
 
-function Todo(props){
+function Todo(props){ 
+  console.log("inside Todo funttion")
   return <div>
     <h2>{props.title}</h2>
     <h2>{props.description}</h2>
